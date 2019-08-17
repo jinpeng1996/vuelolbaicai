@@ -43,7 +43,7 @@
           :key="index"
           :text="k.name"
           :icon="k.imgess"
-          @click="navTo('homeNav')"
+          @click="navTo('homenav')"
         />
       </van-grid>
 
@@ -297,9 +297,68 @@
               </p>
             </div>
           </div>
-          <div class="befor"></div>
-          <div class="befor"></div>
+          <div class="befor">
+            <div class="cent">
+              <a href="?r=p/d&amp;id=21472139&amp;source=mp&amp;brand_site=0" class="img">
+                <img
+                  src="https://img.alicdn.com/imgextra/i1/2064817070/O1CN01FEP0tT2266jafd53W_!!2064817070.png_310x310.jpg_.webp"
+                  alt
+                />
+              </a>
+              <p class="name">【专区任拍2件】韩版宽松系带灯笼袖衬衫</p>
+              <p class="money">
+                <i>¥</i>59
+                <del>¥10</del>
+              </p>
+            </div>
+          </div>
+          <div class="befor">
+            <div class="cent">
+              <a href="?r=p/d&amp;id=21472139&amp;source=mp&amp;brand_site=0" class="img">
+                <img
+                  src="https://gd1.alicdn.com/imgextra/i1/263817957/TB2dq1qjx6I8KJjy0FgXXXXzVXa_!!263817957.jpg_310x310.jpg_.webp"
+                  alt
+                />
+              </a>
+              <p class="name">【专区任拍2件】韩版破洞条纹假两件T恤</p>
+              <p class="money">
+                <i>¥</i>59
+                <del>¥10</del>
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- 列表 -->
+      <div class="overflow_auto">
+        <ul class="ranking_ullit">
+          <li v-for="(k, index) in goodsList " :key="index">
+            <a class="img" onclick="window.location.href='/index.php?r=p/d&amp;id=21510846'">
+              <img class="lazy" :src="k.pic" alt />
+            </a>
+            <div class="text">
+              <a>
+                <h3>{{k.dtitle}}</h3>
+              </a>
+              <a>
+                <p class="nr">
+                  近2小时疯抢
+                  <span>{{k.salesNum}}</span>件
+                  <br />
+                  <font>天猫价: ¥{{k.yuanjia}}</font>
+                </p>
+              </a>
+              <div class="button">
+                <span class="money">
+                  <i>券后价 ¥</i>
+                  {{k.jiage}}
+                </span>
+                <a href="/index.php?r=p/d&amp;id=21510846">立即抢</a>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <!-- gd -->
@@ -339,7 +398,7 @@
             src="https://img.alicdn.com/imgextra/i1/2053469401/TB26bEfnQZmBKNjSZPiXXXFNVXa-2053469401.png"
           />
         </i>
-        <span>收藏</span>
+        <span>订单</span>
       </router-link>
       <router-link to="/my">
         <i class="iconfont">
@@ -358,6 +417,7 @@ export default {
   // components: {},
   data() {
     return {
+      goodsList: [],
       value: "",
       // 宫格
       kingkongList: [
@@ -428,91 +488,15 @@ export default {
       value1: 0,
       menu: [],
       // 大家都在领
-      coupon_cent: [
-        {
-          imgurl:
-            "https://img.alicdn.com/imgextra/i1/1672011379/O1CN01CT26B31M3cfSUbINT_!!1672011379.jpg_310x310.jpg_.webp",
-          num: "1.3万",
-          coupon: "5元券",
-          name: "e洁手提自动收口加厚垃圾袋72只",
-          price: "14.8",
-          prices: "￥19.8",
-          width: "66%"
-        },
-        {
-          imgurl:
-            "https://img.alicdn.com/imgextra/i2/2200631204497/O1CN01eDsnAl1j5fcQje8TU_!!2200631204497.jpg_310x310.jpg_.webp",
-          num: "4.2万",
-          coupon: "1元券",
-          name: "发财树富贵竹办公室绿植",
-          price: "6.8",
-          prices: "￥7.8",
-          width: "42%"
-        },
-        {
-          imgurl:
-            "https://img.alicdn.com/imgextra/i2/2069236072/O1CN016hN10s1uj1Sht6IZN_!!2069236072.jpg_310x310.jpg_.webp",
-          num: "2.9万",
-          coupon: "50元券",
-          name: "自发热护膝保暖老人老寒腿",
-          price: "5.8",
-          prices: "¥55.8",
-          width: "29%"
-        },
-        {
-          imgurl:
-            "https://img.alicdn.com/imgextra/i1/1862328308/O1CN01vRYyHu2BF73Y0Rfcv_!!1862328308.jpg_310x310.jpg_.webp",
-          num: "5.9万",
-          coupon: " 60元券",
-          name: "【歌莉娅】潮女双肩包百搭耐看背包书包",
-          price: "29",
-          prices: "¥89",
-          width: "59%"
-        },
-        {
-          imgurl:
-            "https://img.alicdn.com/imgextra/i2/899530677/O1CN01Klphai1Gs6gO8WvHg_!!899530677.jpg_310x310.jpg_.webp",
-          num: "1.9万",
-          coupon: "15元券",
-          name: "半亩花田旗舰店 苦参沐浴露400ml",
-          price: "44",
-          prices: "¥59",
-          width: "19%"
-        },
-        {
-          imgurl:
-            "https://img.alicdn.com/bao/uploaded/i4/O1CN011bfNWjHfzBaM2zK_!!0-item_pic.jpg_310x310.jpg_.webp",
-          num: "5.2万",
-          coupon: "10元券",
-          name: "大牌【唇动】营养早餐纯蛋糕整箱680g",
-          price: "19.8",
-          prices: "¥29.8",
-          width: "52%"
-        },
-        {
-          imgurl:
-            "https://img.alicdn.com/imgextra/i2/2819663066/O1CN01RjfMZ81YWGrmnjoC2_!!2819663066.jpg_310x310.jpg_.webp",
-          num: "1.8万",
-          coupon: " 20元券",
-          name: "【72包】爆售3万件洁柔手帕纸",
-          price: "27.9 ",
-          prices: "¥47.9",
-          width: "18%"
-        },
-        {
-          imgurl:
-            "https://img.alicdn.com/imgextra/i4/4028248869/O1CN01sjOyMg2FO3FF2MIKQ_!!4028248869.jpg_310x310.jpg_.webp",
-          num: "3.3万",
-          coupon: "  40元券",
-          name: "拖地阔腿破洞牛仔长裤复古坠感",
-          price: "39 ",
-          prices: "¥79",
-          width: "33%"
-        }
-      ]
+      coupon_cent: []
     };
   },
   methods: {
+    //     async created() {
+    //   const res = await this.$axios.get("http://localhost:3000/aad")
+
+    // },
+
     onSearch() {},
     // 编程式导航
     navTo(name) {
@@ -521,6 +505,17 @@ export default {
         name
       });
     }
+  },
+  async created() {
+    // 获取大家都在领 数据
+    let coupon_cent = await this.$axios("http://localhost:3000/");
+    console.log(coupon_cent);
+    this.coupon_cent = coupon_cent.data; //列表数据
+
+    // 获取列表页数据
+    let goodsList = await this.$axios("http://localhost:3000/list/data");
+    console.log(goodsList);
+    this.goodsList = goodsList.data; //列表数据
   }
 };
 // scoped
@@ -1166,6 +1161,18 @@ body {
             }
             .money {
               padding-bottom: 5px;
+              color: #fc4d52;
+              font-size: 16px;
+              i {
+                font-style: normal;
+                font-size: 12px;
+                margin-right: 3px;
+                color: #fc4d52;
+              }
+              del {
+                color: #bbb;
+                font-size: 14px;
+              }
             }
           }
         }
@@ -1198,6 +1205,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
+    background: #fff;
     a {
       display: inline-block;
       width: 20%;
@@ -1218,6 +1226,108 @@ body {
           height: 24px;
           display: block;
           margin: auto;
+        }
+      }
+    }
+  }
+}
+// 列表
+.home {
+  .overflow_auto {
+    overflow: auto;
+    margin: auto;
+    max-width: 750px;
+    position: relative;
+    z-index: 5;
+    // margin-top: 90px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .ranking_ullit {
+      padding-top: 10px;
+      background: #f5f5f5;
+      li {
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+        margin: 0 10px 10px;
+        background: #fff;
+        list-style-type: none;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+        box-shadow: 1px 1px 1px #eee;
+        padding-left: 0;
+        margin-bottom: 5px;
+        padding: 10px;
+        height: 140px;
+        .img {
+          width: 120px;
+          height: 120px;
+          position: relative;
+          z-index: 0;
+          float: left;
+          background: #f5f5f5;
+          overflow: hidden;
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+        .text {
+          padding: 0 0 0 110px;
+          padding-left: 130px;
+          height: 120px;
+          text-align: left;
+          h3 {
+            color: #333;
+            line-height: 30px;
+            margin: 0;
+            overflow: hidden;
+            font-size: 14px;
+            height: 25px;
+            position: relative;
+            z-index: 1;
+            top: -3px;
+          }
+          .nr {
+            font-size: 14px;
+            color: #888;
+            line-height: 26px;
+            margin-bottom: 0;
+            padding-top: 5px;
+            span {
+              color: #ff7800;
+              padding: 0 3px;
+            }
+          }
+          .button {
+            padding-top: 5px;
+            height: 25px;
+            line-height: 25px;
+            .money {
+              color: #ff2b22;
+              font-size: 20px;
+              margin: 0;
+              i {
+                font-style: normal;
+                font-size: 12px;
+              }
+            }
+            a {
+              background: linear-gradient(
+                -90deg,
+                rgba(252, 77, 81, 1),
+                rgba(252, 63, 120, 1)
+              );
+              border-radius: 100px;
+              color: #fff;
+              font-size: 14px;
+              padding: 3px 15px;
+              float: right;
+              line-height: 23px;
+            }
+          }
         }
       }
     }

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 //第三方组件
+
+
 import {
     // 搜索
     Search,
@@ -13,29 +15,28 @@ import {
     // 标签栏
     Tabbar,
     TabbarItem,
+    // 导航栏
+    NavBar,
+    //弹出层
+    Popup,
+    Icon,
+    //dl
+    Field,
+    Button,
+    Cell,
+    CellGroup,
+    //
+    Image,
+    //轻提示
+    Toast,
+    Card,
+    SubmitBar,
+    // 复选框
+    Checkbox,
+    CheckboxGroup,
+    Tag
 
 } from 'vant';
-//轮播图
-// import {
-//     Lazyload
-// } from 'vant';
-
-// options 为可选参数，无则不传
-
-
-
-
-//分割线
-// import {
-//     Divider
-// } from 'vant';
-
-
-//下拉刷新
-// import {
-//     DropdownMenu,
-//     DropdownItem
-// } from 'vant';
 
 export default () => {
     // 搜索
@@ -49,6 +50,19 @@ export default () => {
     Vue.use(Tabbar).use(TabbarItem);
     // Vue.use(Divider);
     // Vue.use(DropdownMenu).use(DropdownItem);
+    //导航栏
+    Vue.use(NavBar);
+    //弹出层
+    Vue.use(Popup);
+    Vue.use(Icon);
 
-
+    Vue.use(Field);
+    Vue.use(Button);
+    Vue.use(Cell).use(CellGroup);
+    Vue.use(Image);
+    Vue.use(Toast);
+    Vue.use(Card);
+    Vue.use(SubmitBar);
+    Vue.use(Checkbox).use(CheckboxGroup);
+    Vue.use(Tag);
 }
